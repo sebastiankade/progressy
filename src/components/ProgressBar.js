@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import './ProgressBar.css';
+import './ProgressBar.scss';
 
 const ProgressBar = ({ text, progress, valid}) => {
   return (
@@ -11,11 +11,9 @@ const ProgressBar = ({ text, progress, valid}) => {
 }
 
 ProgressBar.propTypes = {
-  // options: PropTypes.arrayOf(
-  //   PropTypes.string.isRequired
-  // ).isRequired,
   progress: PropTypes.number.isRequired,
-  // onChange: PropTypes.func.isRequired
+  text: PropTypes.string.isRequired,
+  valid: PropTypes.bool.isRequired
 }
 
 export default ProgressBar

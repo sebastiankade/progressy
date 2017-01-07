@@ -1,0 +1,34 @@
+@import '../styles/global';
+
+.progress-bar {
+  position: relative;
+  display: block;
+  height: 2em;
+  margin: 0.5em 0 0;
+  border: 1px solid $color-border;
+
+  /* Elements */
+  .progress-bar__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background: $color-blue;
+    transition: all 0.3s ease;
+  }
+
+  .progress-bar__text {
+    display: block;
+    text-align: center;
+    line-height: 2em;
+    position: relative;
+  }
+
+  /* Modifiers */
+  &.progress-bar--invalid {
+    .progress-bar__inner {
+      background: $color-red;
+    }
+  }
+}

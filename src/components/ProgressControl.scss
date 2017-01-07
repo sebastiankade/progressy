@@ -1,0 +1,19 @@
+@import '../styles/global';
+
+.progress-control {
+  text-align: left;
+
+  /* Elements */
+  .progress-control__selector {
+    display: inline-block;
+    width: 60px;
+    padding-right: 5px;
+    margin-right: 5px;
+  }
+
+  .progress-control__buttons {
+    display: inline-block;
+  }
+
+  /* Modifiers */
+}
