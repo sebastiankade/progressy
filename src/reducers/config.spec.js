@@ -47,7 +47,7 @@ describe('config reducer', () => {
       expect(
         config({}, {
           type: 'GET_CONFIG_ERROR',
-          error: 'Failed to reach the server.'
+          error: { message: 'Failed to reach the server.' }
         })
       ).toEqual({
         loading: false,

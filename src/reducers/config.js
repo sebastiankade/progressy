@@ -22,7 +22,7 @@ const config = (state = { loading: false }, action) => {
       return {
         ...state,
         loading: false,
-        error: action.error || 'Failed to load options'
+        error: (action.error ? action.error.message || action.error : null) || 'Failed to load options'
       };
     default:
       return state;
