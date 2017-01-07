@@ -120,6 +120,12 @@ module.exports = {
           name: 'static/media/[name].[hash:8].[ext]'
         }
       },
+      // SCSS Loader
+      {
+        test: /\.scss$/,
+        include: paths.appSrc,
+        loaders: ["style", "css", "sass"]
+      },
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
