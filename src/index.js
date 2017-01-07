@@ -8,7 +8,7 @@ import reducer from './reducers/index.js';
 import App from './containers/App';
 import load from './actions/config.js';
 
-import './index.css';
+import './index.scss';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
