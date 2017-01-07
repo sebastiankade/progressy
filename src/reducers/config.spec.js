@@ -33,9 +33,9 @@ describe('config reducer', () => {
         error: false,
         buttons: [10, 38, -13, -18],
         bars: [
-          { id: 'bar1', progress: 62, valid: true },
-          { id: 'bar2', progress: 45, valid: true },
-          { id: 'bar3', progress: 62, valid: true }
+          { id: 'bar1', progress: 62, percent: 27, valid: true },
+          { id: 'bar2', progress: 45, percent: 20, valid: true },
+          { id: 'bar3', progress: 62, percent: 27, valid: true }
         ],
         limit: 230
       })

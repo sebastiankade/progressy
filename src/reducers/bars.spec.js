@@ -28,7 +28,7 @@ describe('bars reducer', () => {
           amount: 10,
           limit: 100
         })
-      ).toEqual([{ id: 'bar1', progress: 30, valid: true }])
+      ).toEqual([{ id: 'bar1', progress: 30, valid: true, percent: 30 }])
     })
 
     it('should invalidate bar when exeeding limit', () => {
@@ -39,7 +39,7 @@ describe('bars reducer', () => {
           amount: 100,
           limit: 100
         })
-      ).toEqual([{ id: 'bar1', progress: 120, valid: false }])
+      ).toEqual([{ id: 'bar1', progress: 120, valid: false, percent: 100 }])
     })
 
   })

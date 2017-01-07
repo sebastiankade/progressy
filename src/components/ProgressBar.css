@@ -1,0 +1,25 @@
+.progress-bar {
+  position: relative;
+  display: block;
+  height: 2em;
+}
+
+.progress-bar__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: gray;
+  z-index: -1;
+}
+
+.progress-bar--invalid {
+  background: red;
+}
+
+.progress-bar__text {
+  display: block;
+  text-align: center;
+  line-height: 2em;
+}

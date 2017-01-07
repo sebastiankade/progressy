@@ -1,10 +1,10 @@
-const incrementBar = (bar, amount, max) => {
+export const incrementBar = (bar, amount, max) => {
   if (!bar) {
     return undefined;
   }
 
   let progress = Math.max(bar.progress + amount, 0);
-  return { id: bar.id, progress: progress, valid: progress < max };
+  return { id: bar.id, progress: progress, valid: progress < max, percent: Math.ceil(Math.min(progress, max) / max * 100) };
 }
 
 const bar = (state, action) => {

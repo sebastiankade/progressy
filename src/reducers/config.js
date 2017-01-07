@@ -1,3 +1,5 @@
+import { incrementBar } from './bars';
+
 const config = (state = { loading: false }, action) => {
   switch (action.type) {
     case 'GET_CONFIG':
@@ -10,7 +12,7 @@ const config = (state = { loading: false }, action) => {
         ...state,
         buttons: [...action.payload.buttons],
         bars: action.payload.bars.map((b, i) => {
-          return { id: 'bar' + (i + 1), progress: b, valid: true }
+          return incrementBar({ id: 'bar' + (i + 1), progress: 0, valid: true }, b, action.payload.limit);
         }),
         limit: action.payload.limit,
         loading: false,

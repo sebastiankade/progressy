@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import ProgressBar from './components/ProgressBar.js';
 
 import './App.css';
 
@@ -10,7 +11,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        {bars.map(b => <h1 key={b.id}>{b.progress} - {b.valid ? 'yes' : 'no'}</h1>)}
+        {bars.map(b => <ProgressBar key={b.id} text={b.progress} progress={b.percent} valid={b.valid}></ProgressBar>)}
 
         <div className="progress-incrementor">
           <div className="progress-incrementor__selector">
