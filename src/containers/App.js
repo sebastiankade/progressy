@@ -57,9 +57,7 @@ App.contextTypes = {
   store: React.PropTypes.object
 };
 
-export default connect(store => {
-  return {...store};
-}, (dispatch) => {
+export default connect(store => store, dispatch => {
   return {
     onUpdateProgress: (id, amount) => {
       dispatch(updateProgress(id, amount));
