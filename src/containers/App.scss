@@ -18,6 +18,11 @@
   .app__error {
     text-align: center;
     color: $color-red;
+
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 }
 

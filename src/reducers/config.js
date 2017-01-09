@@ -12,7 +12,7 @@ const config = (state = { loading: false }, action) => {
         ...state,
         buttons: [...action.payload.buttons],
         bars: action.payload.bars.map((b, i) => {
-          return incrementBar({ id: 'bar' + (i + 1), progress: 0, valid: true }, b, action.payload.limit);
+          return incrementBar({ id: 'Bar' + (i + 1), progress: 0, valid: true }, b, action.payload.limit);
         }),
         limit: action.payload.limit,
         loading: false,

@@ -4,12 +4,13 @@ import ProgressBar from '../components/ProgressBar.js';
 import ProgressControl from '../components/ProgressControl.js';
 
 import {updateProgress} from '../actions';
+import loadConfig from '../actions/config';
 
 import './App.scss';
 
 class App extends Component {
   render() {
-    let {bars, buttons, limit, loading, error, updateProgress} = this.props;
+    let {bars, buttons, limit, loading, error, updateProgress, reload} = this.props;
 
     let body;
 
@@ -20,7 +21,11 @@ class App extends Component {
         </div>
       )
     } else if (error) {
-      body = <div className="tile-section tile-section--bordered"><p className="app__error">{error}</p></div>
+      body = (
+        <div className="tile-section tile-section--bordered">
+          <p className="app__error"><strong>{error}</strong> - <a onClick={reload}>Click here to retry.</a></p>
+        </div>
+      )
     } else {
       body = (<div>
         <div className="tile-section tile-section--bordered">
@@ -58,6 +63,9 @@ export default connect(store => {
   return {
     updateProgress: (id, amount, limit) => {
       dispatch(updateProgress(id, amount, limit));
+    },
+    reload: () => {
+      dispatch(loadConfig());
     }
   };
 })(App);
