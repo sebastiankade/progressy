@@ -10,7 +10,7 @@ import './App.scss';
 
 class App extends Component {
   render() {
-    let {bars, buttons, limit, loading, error, updateProgress, reload} = this.props;
+    let {bars, buttons, loading, error, onUpdateProgress, onReload} = this.props;
 
     let body;
 
@@ -23,7 +23,7 @@ class App extends Component {
     } else if (error) {
       body = (
         <div className="tile-section tile-section--bordered">
-          <p className="app__error"><strong>{error}</strong> - <a onClick={reload}>Click here to retry.</a></p>
+          <p className="app__error"><strong>{error}</strong> - <a onClick={onReload}>Click here to retry.</a></p>
         </div>
       )
     } else {
@@ -35,7 +35,7 @@ class App extends Component {
         </div>
 
         <div className="tile-section">
-          <ProgressControl buttons={buttons} bars={bars} onUpdateProgress={(bar, amount) => updateProgress(bar, amount, limit)}></ProgressControl>
+          <ProgressControl buttons={buttons} bars={bars} onUpdateProgress={(bar, amount) => onUpdateProgress(bar, amount)}></ProgressControl>
         </div>
       </div>);
     }
@@ -61,10 +61,10 @@ export default connect(store => {
   return {...store};
 }, (dispatch) => {
   return {
-    updateProgress: (id, amount, limit) => {
-      dispatch(updateProgress(id, amount, limit));
+    onUpdateProgress: (id, amount) => {
+      dispatch(updateProgress(id, amount));
     },
-    reload: () => {
+    onReload: () => {
       dispatch(loadConfig());
     }
   };

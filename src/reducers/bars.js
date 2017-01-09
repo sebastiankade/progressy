@@ -7,24 +7,27 @@ export const incrementBar = (bar, amount, max) => {
   return { id: bar.id, progress: progress, valid: progress < max, percent: Math.ceil(Math.min(progress, max) / max * 100) };
 }
 
-const bar = (state, action) => {
+const bar = (state, action, limit) => {
   switch (action.type) {
     case 'UPDATE_PROGRESS':
-      return incrementBar(state, action.amount, action.limit);
+      return incrementBar(state, action.amount, limit);
     default:
       return state;
   }
 };
 
-const bars = (state = [], action) => {
+const bars = (state = { bars:[] }, action) => {
   switch (action.type) {
     case 'UPDATE_PROGRESS':
-      return state.map(b => {
-        if (b.id === action.id) {
-          return bar(b, action);
-        }
-        return b;
-      });
+      return {
+        ...state,
+        bars: state.bars.map(b => {
+          if (b.id === action.id) {
+            return bar(b, action, state.limit);
+          }
+          return b;
+        })
+      };
     default:
       return state;
   }

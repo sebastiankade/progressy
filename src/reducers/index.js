@@ -8,7 +8,7 @@ const appReducer = (state = { bars: [], buttons: [], limit: undefined, loading: 
     case 'GET_CONFIG_ERROR':
       return config(state, action);
     case 'UPDATE_PROGRESS':
-      return { ...state, bars: bars(state.bars, action) };
+      return bars(state, action);
     default:
       return state;
   }
